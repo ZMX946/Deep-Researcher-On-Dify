@@ -1,0 +1,387 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 房产数据分析助手
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.37@9e635dd61046ede51c76c174a0c7dc723616cd6698b18c0273c0ee11aeb9accd
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1754668187888-source-1754668203944-target
+      source: '1754668187888'
+      sourceHandle: source
+      target: '1754668203944'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1754668203944-source-1754668210206-target
+      source: '1754668203944'
+      sourceHandle: source
+      target: '1754668210206'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1754668210206-source-1754668216463-target
+      source: '1754668210206'
+      sourceHandle: source
+      target: '1754668216463'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1754668216463-source-1754668220799-target
+      source: '1754668216463'
+      sourceHandle: source
+      target: '1754668220799'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: query
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: query
+      height: 90
+      id: '1754668187888'
+      position:
+        x: 30
+        y: 245
+      positionAbsolute:
+        x: 30
+        y: 245
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: qwen3-coder-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 796d8ba7-576f-405d-9d8d-b599406784bd
+          role: system
+          text: '你是数据分析专家，精通MySQL。根据用户问题生成SQL查询。
+
+
+            核心规则：
+
+            1. 仅使用用户提到的表和字段
+
+            2. 确保SQL兼容MySQL
+
+            3. 只输出一个完整SQL语句，确保输出是一个可直接执行的SQL文本,不含注释等其它任何多余信息
+
+
+            注意：
+
+            - 检查表名和字段名，严格按照表结构描述写，比如用户提到单价，你需要写成单价（元）
+
+            - 字符字段用LIKE N''%关键词%''
+
+            - 所有除法用指定模板
+
+            - 根据需求选择正确的聚合函数'
+        - id: 902eef00-3b3a-494f-9eef-8019baa1a8f2
+          role: user
+          text: '表结构描述：
+
+            表名称：fangchang
+
+            id，整数
+
+            地区 ，字符串
+
+            房价（万），小数
+
+            配置，字符串
+
+            大小（平米），小数
+
+            单价（元），整数
+
+            方位，字符串
+
+            层数，字符串
+
+            装修，字符串
+
+            其他，字符串
+
+
+            问题:{{#1754668187888.query#}}
+
+
+            请将问题转成SQL语句
+
+
+            请只返回执行语句
+
+            例如： SELECT * FROM fangchang WHERE price BETWEEN 50 AND 100;
+
+            请不要有任何其他信息，特别是前面不能有sql\n,否则会受到惩罚'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1754668203944'
+      position:
+        x: 334
+        y: 245
+      positionAbsolute:
+        x: 334
+        y: 245
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import requests\n\n# Flask应用的基础URL（需要修改）\nbase_url = 'http://host.docker.internal:5001'\
+          \ # 根据自己的ip地址修改\n\n# 定义测试函数\ndef main(sql_query):\n    # 构造请求的URL和查询参数\n\
+          \    url = f'{base_url}/execute_query'\n    # 发送GET请求，并包含查询参数\n    response\
+          \ = requests.get(url,params={'sql_query':sql_query})\n    # 打印响应内容，以便于调试\n\
+          \    # print(response.json())\n\n    # 检查响应状态码是否为200\n    assert response.status_code\
+          \ == 200, f\"Expected status code 200, got {response.status_code}\"\n\n\
+          \    # 检查响应内容是否为JSON格式\n    assert response.headers['Content-Type'] == 'application/json',\
+          \ \"Expected JSON response\"\n\n    # 检查响应内容是否包含数据\n    data = response.text\n\
+          \n    # result = {i: sublist for i, sublist in enumerate(data)}\n\n    #\
+          \ print(result,type(result))\n\n    return {'result':data}\n\n    assert\
+          \ isinstance(data, list), \"Expected a list of results\"\n    assert len(data)\
+          \ > 0, \"Expected non-empty list\""
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: true
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1754668203944'
+          - text
+          variable: sql_query
+      height: 54
+      id: '1754668210206'
+      position:
+        x: 638
+        y: 245
+      positionAbsolute:
+        x: 638
+        y: 245
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: qwen3-max-preview
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: cea6f2ab-4de6-457a-bec7-e54547fb78cd
+          role: system
+          text: '你是数据分析专家。分析JSON格式的SQL查询结果，回答用户问题。
+
+
+            关健规则：
+
+            1. 所有数据已符合用户问题中的条件
+
+            2. 直接使用提供的数据分析，不质疑数据是否符合条件
+
+            3. 不需再次筛选或确认教据类别/时间范围
+
+            4. 数据为[]或空时，回复“没有查询到相关数据”，不得编造数据
+
+            5. 用简体中文，不要出现繁体字
+
+            6. 输出的各字段数据要保证和返回的数据一致'
+        - id: dd0ec2d6-b660-4777-af96-6ea786c65e86
+          role: user
+          text: '数据是：{{#1754668210206.result#}}
+
+            问题是：{{#1754668187888.query#}}
+
+            回答要求：
+
+            1.列出详细数据，，优先以表格方式列出数据，如果数据超过10时，除非用户问题中包含明确要求列出全部数据的情形外，你只需要随机列出5系有代表性的的记录，否则需要列出全部记录
+
+            2.当有记录披省略时，必须作出说明
+
+            3.对数据进行概览和总结
+
+            4.识别趋势、异常，并提供分析和建议
+
+            5.分析SQL语句 {{#1754668203944.text#}}与用户的问题是否匹配并输出分析结果
+
+            6.最后原文附上SQL语句
+
+
+            数据处理：
+
+            - 房价。单位：万
+
+            - 大小。单位：平米，
+
+            - 单价。单位：元
+
+            - 使用运号计数法：1,234,567
+
+            - 其他数值保留2位小数
+
+            - 对于比例、占比以及含义类似的字段，显示为百分比，
+
+            例如：将0.1236显示为12.36%，保留两位小数
+
+            - 确保使用了正确的markdown语法，特别是标题和表格
+
+
+            注意：
+
+            - 不要输出中间的分析过程和计算方法，只需要按要求输出结果即可
+
+            - 认真检查是否按照要求的格式正确显示了数据{{#1754668210206.result#}}'
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1754668216463'
+      position:
+        x: 942.9920634920636
+        y: 245
+      positionAbsolute:
+        x: 942.9920634920636
+        y: 245
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1754668216463'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1754668220799'
+      position:
+        x: 1246
+        y: 245
+      positionAbsolute:
+        x: 1246
+        y: 245
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -180.44399999999996
+      y: 48.67999999999995
+      zoom: 1.008

@@ -1,0 +1,1141 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 房产数据分析助手-图表
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.37@9e635dd61046ede51c76c174a0c7dc723616cd6698b18c0273c0ee11aeb9accd
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/echarts:0.0.1@e390de4320a5ab32ef24899983f84c31aa39e4690c7b294be11f2c10268c3a68
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1754668187888-source-1754668203944-target
+      source: '1754668187888'
+      sourceHandle: source
+      target: '1754668203944'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1754668203944-source-1754668210206-target
+      source: '1754668203944'
+      sourceHandle: source
+      target: '1754668210206'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1754668210206-source-1754668216463-target
+      source: '1754668210206'
+      sourceHandle: source
+      target: '1754668216463'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1754811331804-source-1754812821015-target
+      selected: false
+      source: '1754811331804'
+      sourceHandle: source
+      target: '1754812821015'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1754812821015-1afd3668-9bbe-4908-8532-6e2fcbfb1db5-1754813551152-target
+      source: '1754812821015'
+      sourceHandle: 1afd3668-9bbe-4908-8532-6e2fcbfb1db5
+      target: '1754813551152'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1754812821015-c6fe23ee-6de2-4b32-859d-6f7123133aed-1754814470349-target
+      source: '1754812821015'
+      sourceHandle: c6fe23ee-6de2-4b32-859d-6f7123133aed
+      target: '1754814470349'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1754812821015-8c2209e0-49db-4639-8ff9-45b6d2858b96-1754814491736-target
+      source: '1754812821015'
+      sourceHandle: 8c2209e0-49db-4639-8ff9-45b6d2858b96
+      target: '1754814491736'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1754814470349-source-1754814597117-target
+      source: '1754814470349'
+      sourceHandle: source
+      target: '1754814597117'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1754814597117-source-1754668220799-target
+      source: '1754814597117'
+      sourceHandle: source
+      target: '1754668220799'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 17549005261450-source-1754900789193-target
+      source: '17549005261450'
+      sourceHandle: source
+      target: '1754900789193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1754668216463-source-1754811331804-target
+      source: '1754668216463'
+      sourceHandle: source
+      target: '1754811331804'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1754813551152-source-17549168521050-target
+      source: '1754813551152'
+      sourceHandle: source
+      target: '17549168521050'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1754814491736-source-17549168548010-target
+      source: '1754814491736'
+      sourceHandle: source
+      target: '17549168548010'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 17549168521050-source-1754668220799-target
+      source: '17549168521050'
+      sourceHandle: source
+      target: '1754668220799'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 17549168548010-source-1754668220799-target
+      source: '17549168548010'
+      sourceHandle: source
+      target: '1754668220799'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: query
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: query
+      height: 90
+      id: '1754668187888'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: qwen3-coder-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 796d8ba7-576f-405d-9d8d-b599406784bd
+          role: system
+          text: '你是数据分析专家，精通MySQL。根据用户问题生成SQL查询。
+
+
+            核心规则：
+
+            1. 仅使用用户提到的表和字段
+
+            2. 确保SQL兼容MySQL
+
+            3. 只输出一个完整SQL语句，确保输出是一个可直接执行的SQL文本,不含注释等其它任何多余信息
+
+
+            注意：
+
+            - 检查表名和字段名，严格按照表结构描述写，比如用户提到单价，你需要写成单价（元）
+
+            - 字符字段用LIKE N''%关键词%''
+
+            - 所有除法用指定模板
+
+            - 根据需求选择正确的聚合函数'
+        - id: 902eef00-3b3a-494f-9eef-8019baa1a8f2
+          role: user
+          text: '表结构描述：
+
+            表名称：fangchang
+
+            id，整数
+
+            地区 ，字符串
+
+            房价（万），小数
+
+            配置，字符串
+
+            大小（平米），小数
+
+            单价（元），整数
+
+            方位，字符串
+
+            层数，字符串
+
+            装修，字符串
+
+            其他，字符串
+
+
+            问题:{{#1754668187888.query#}}
+
+
+            请将问题转成SQL语句
+
+
+            请只返回执行语句
+
+            例如： SELECT * FROM fangchang WHERE price BETWEEN 50 AND 100;
+
+            请不要有任何其他信息，特别是前面不能有sql\n,否则会受到惩罚'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1754668203944'
+      position:
+        x: 384
+        y: 282
+      positionAbsolute:
+        x: 384
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import requests\n\n# Flask应用的基础URL（需要修改）\nbase_url = 'http://host.docker.internal:5001'\
+          \ # 根据自己的ip地址修改\n\n# 定义测试函数\ndef main(sql_query):\n    # 构造请求的URL和查询参数\n\
+          \    url = f'{base_url}/execute_query'\n    print(\"访问服务器地址：\", url)\n \
+          \   # 发送GET请求，并包含查询参数\n    response = requests.get(url,params={'sql_query':sql_query})\n\
+          \    # 打印响应内容，以便于调试\n    print(response.json())\n\n    # 检查响应状态码是否为200\n\
+          \    assert response.status_code == 200, f\"Expected status code 200, got\
+          \ {response.status_code}\"\n\n    # 检查响应内容是否为JSON格式\n    assert response.headers['Content-Type']\
+          \ == 'application/json', \"Expected JSON response\"\n\n    # 检查响应内容是否包含数据\n\
+          \    data = response.text\n\n    # result = {i: sublist for i, sublist in\
+          \ enumerate(data)}\n\n    # print(result,type(result))\n\n    return {'result':data}\n\
+          \n    assert isinstance(data, list), \"Expected a list of results\"\n  \
+          \  assert len(data) > 0, \"Expected non-empty list\""
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 访问数据库服务
+        type: code
+        variables:
+        - value_selector:
+          - '1754668203944'
+          - text
+          variable: sql_query
+      height: 54
+      id: '1754668210206'
+      position:
+        x: 688
+        y: 282
+      positionAbsolute:
+        x: 688
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: qwen3-max-preview
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: cea6f2ab-4de6-457a-bec7-e54547fb78cd
+          role: system
+          text: "你是数据分析专家。分析JSON格式的SQL查询结果，回答用户问题。\n\n### 图片使用场景\n- 线性图 ：适用于展示趋势变化的数据，例如时间序列数据（如每月、每年的变化）。\n\
+            - 柱状图 ：适用于比较不同类别之间的数量或占比，例如各市的占比情况。\n- 饼状图 ：适用于展示整体的组成部分及其比例，通常用于单维度的比例分布。\n\
+            \n### 要求：\n1. 优先回答用户问题，回答内容不要发散。\n2. 所有数据已符合用户问题中的条件\n3. 直接使用提供的数据分析，不质疑数据是否符合条件\n\
+            4. 数据为[]或空时，回复“没有查询到相关数据”，不得编造数据\n5. 用简体中文，不要出现繁体字\n6. 输出的地区名字必须保证正确，比如怡众名城，不是恒大众名城\n\
+            7. 根据用户问题正确使用线性图/柱状图/饼状图。\n8. 将返回内容放入到 JSON 中，格式如下：\n```json\n{\n  \"\
+            results\": \"用md格式先回复用户问题，其他维度数据简单概括，但是数据一定要展示出来\",\n  \"ECHarts\": \"\
+            1\",  // 如果需要生成图表，则为 \"1\"；否则为 \"0\"\n  \"chartType\": \"线性图/柱状图/饼状图\"\
+            ,  // 图表类型（仅当 ECHarts 为 true 时提供）\n  \"chartTitle\": \"图表标题\",       \
+            \     // 图表标题（仅当 ECHarts 为 true 时提供）\n  \"chartData\": \"图表的数据，多个用;隔开\"\
+            , // 图表数据（仅当 ECHarts 为 true 时提供）\n  \"chartXAxis\": \"图表的X轴，多个用;隔开\" \
+            \  // 图表的X轴数据（仅当 ECHarts 为 true 时提供）\n}\n```\n\n#### 注意事项：\n- 如果查询结果适合生成图表，则\
+            \ ECHarts 设置为 \"1\"，并补充 chartType、chartTitle、chartData 和 chartXAxis 字段。\n\
+            - 如果查询结果不适合生成图表，则 ECHarts 设置为 \"0\"，并省略 chartType、chartTitle、chartData\
+            \ 和 chartXAxis 字段。\n- 咨询占比必须使用饼状图进行展示，饼状图chartData中应返回百分比，不需要返回%。\n"
+        - id: dd0ec2d6-b660-4777-af96-6ea786c65e86
+          role: user
+          text: '数据是：{{#1754668210206.result#}}
+
+            问题是：{{#1754668187888.query#}}
+
+            回答要求：
+
+            1.列出详细数据，，优先以表格方式列出数据，如果数据超过10时，除非用户问题中包含明确要求列出全部数据的情形外，你只需要随机列出5系有代表性的的记录，否则需要列出全部记录
+
+            2.当有记录披省略时，必须作出说明
+
+            3.对数据进行概览和总结
+
+            4.识别趋势、异常，并提供分析和建议
+
+            5.分析SQL语句 {{#1754668203944.text#}}与用户的问题是否匹配并输出分析结果
+
+            6.最后原文附上SQL语句
+
+
+            数据处理：
+
+            - 房价。单位：万
+
+            - 大小。单位：平米，
+
+            - 单价。单位：元
+
+            - 使用运号计数法：1,234,567
+
+            - 其他数值保留2位小数
+
+            - 对于比例、占比以及含义类似的字段，显示为百分比，
+
+            例如：将0.1236显示为12.36%，保留两位小数
+
+            - 确保使用了正确的markdown语法，特别是标题和表格
+
+
+            注意：
+
+            - 不要输出中间的分析过程和计算方法，只需要按要求输出结果即可
+
+            - 认真检查是否按照要求的格式正确显示了数据{{#1754668210206.result#}}'
+        selected: false
+        title: 结果汇总
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1754668216463'
+      position:
+        x: 987.2377969784097
+        y: 282
+      positionAbsolute:
+        x: 987.2377969784097
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1754814597117'
+          - output
+          variable: output
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1754668220799'
+      position:
+        x: 1898.174802014394
+        y: 582.5354571941372
+      positionAbsolute:
+        x: 1898.174802014394
+        y: 582.5354571941372
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\nimport json\n\ndef main(arg1: str) -> dict:\n    # 默认返回值\n\
+          \    default_output = {\n        \"results\": \"\",\n        \"ECHarts\"\
+          : \"0\",\n        \"chartType\": \"\",\n        \"chartTitle\": \"\",\n\
+          \        \"chartData\": \"\",\n        \"chartXAxis\": \"\"\n    }\n   \
+          \ \n    try:\n        # 使用正则表达式提取被 ```json 和 ``` 包裹的内容\n        match =\
+          \ re.search(r'```json\\s*([\\s\\S]*?)\\s*```', arg1)\n        if not match:\n\
+          \            raise ValueError(\"输入字符串中未找到有效的 JSON 数据\")\n        \n    \
+          \    # 提取 JSON 字符串\n        json_str = match.group(1).strip()\n        \n\
+          \        # 将 JSON 字符串解析为 Python 字典\n        result_dict = json.loads(json_str)\n\
+          \    except Exception as e:\n        # 如果解析失败，打印错误信息并返回默认输出\n        print(f\"\
+          解析失败: {e}\")\n        return default_output\n    \n    # 检查是否包含 ECHarts\
+          \ 字段\n    if \"ECHarts\" not in result_dict:\n        result_dict[\"ECHarts\"\
+          ] = \"0\"  # 默认设置为 \"0\"\n    \n    # 根据 ECHarts 的值动态检查图表相关字段\n    if result_dict[\"\
+          ECHarts\"] == \"1\":\n        required_chart_fields = [\"chartType\", \"\
+          chartTitle\", \"chartData\", \"chartXAxis\"]\n        for field in required_chart_fields:\n\
+          \            if field not in result_dict:\n                result_dict[field]\
+          \ = \"\"  # 自动补全缺失字段为空字符串\n    \n    # 构造返回值\n    return {\n        \"results\"\
+          : str(result_dict.get(\"results\", \"\")),\n        \"ECHarts\": str(result_dict.get(\"\
+          ECHarts\", \"0\")),\n        \"chartType\": str(result_dict.get(\"chartType\"\
+          , \"\")),\n        \"chartTitle\": str(result_dict.get(\"chartTitle\", \"\
+          \")),\n        \"chartData\": str(result_dict.get(\"chartData\", \"\")),\n\
+          \        \"chartXAxis\": str(result_dict.get(\"chartXAxis\", \"\"))\n  \
+          \  }"
+        code_language: python3
+        desc: ''
+        outputs:
+          ECHarts:
+            children: null
+            type: string
+          chartData:
+            children: null
+            type: string
+          chartTitle:
+            children: null
+            type: string
+          chartType:
+            children: null
+            type: string
+          chartXAxis:
+            children: null
+            type: string
+          results:
+            children: null
+            type: string
+        selected: false
+        title: 生成echart
+        type: code
+        variables:
+        - value_selector:
+          - '1754668216463'
+          - text
+          variable: arg1
+      height: 54
+      id: '1754811331804'
+      position:
+        x: 1326
+        y: 282
+      positionAbsolute:
+        x: 1326
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 571e3226-2d02-4bba-a89b-2a4380cdc6b3
+            value: '0'
+            varType: string
+            variable_selector:
+            - '1754811331804'
+            - ECHarts
+          id: 'true'
+          logical_operator: and
+        - case_id: 1afd3668-9bbe-4908-8532-6e2fcbfb1db5
+          conditions:
+          - comparison_operator: contains
+            id: fe5f220d-c05f-48d0-afbe-d64da8e41383
+            value: 柱状图
+            varType: string
+            variable_selector:
+            - '1754811331804'
+            - chartType
+          id: 1afd3668-9bbe-4908-8532-6e2fcbfb1db5
+          logical_operator: and
+        - case_id: c6fe23ee-6de2-4b32-859d-6f7123133aed
+          conditions:
+          - comparison_operator: contains
+            id: 64917959-4ee7-4f78-b466-e131a4e030cb
+            value: 饼状图
+            varType: string
+            variable_selector:
+            - '1754811331804'
+            - chartType
+          id: c6fe23ee-6de2-4b32-859d-6f7123133aed
+          logical_operator: and
+        - case_id: 8c2209e0-49db-4639-8ff9-45b6d2858b96
+          conditions:
+          - comparison_operator: contains
+            id: 17df8cbe-ec2e-4984-bae2-e4bee1d450a5
+            value: 线性图表
+            varType: string
+            variable_selector:
+            - '1754811331804'
+            - chartType
+          id: 8c2209e0-49db-4639-8ff9-45b6d2858b96
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 270
+      id: '1754812821015'
+      position:
+        x: 976.6362130935579
+        y: 474.4551476257677
+      positionAbsolute:
+        x: 976.6362130935579
+        y: 474.4551476257677
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: chart title
+            ja_JP: chart title
+            pt_BR: chart title
+            zh_Hans: 图表的标题
+          label:
+            en_US: title
+            ja_JP: title
+            pt_BR: title
+            zh_Hans: 标题
+          llm_description: chart title
+          max: null
+          min: null
+          name: title
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data for generating chart, each number should be separated by ";"
+            ja_JP: data for generating chart, each number should be separated by ";"
+            pt_BR: data for generating chart, each number should be separated by ";"
+            zh_Hans: 用于生成柱状图的数据，每个数字之间用 ";" 分隔
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 数据
+          llm_description: data for generating bar chart, data should be a string
+            contains a list of numbers like "1;2;3;4;5"
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: X axis for chart, each text should be separated by ";"
+            ja_JP: X axis for chart, each text should be separated by ";"
+            pt_BR: X axis for chart, each text should be separated by ";"
+            zh_Hans: 柱状图的 x 轴，每个文本之间用 ";" 分隔
+          label:
+            en_US: X Axis
+            ja_JP: X Axis
+            pt_BR: X Axis
+            zh_Hans: x 轴
+          llm_description: x axis for bar chart, x axis should be a string contains
+            a list of texts like "a;b;c;1;2" in order to match the data
+          max: null
+          min: null
+          name: x_axis
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          data: ''
+          title: ''
+          x_axis: ''
+        provider_id: langgenius/echarts/echarts
+        provider_name: langgenius/echarts/echarts
+        provider_type: builtin
+        selected: false
+        title: 柱状图
+        tool_configurations: {}
+        tool_label: 柱状图
+        tool_name: bar_chart
+        tool_node_version: '2'
+        tool_parameters:
+          data:
+            type: mixed
+            value: '{{#1754811331804.chartData#}}'
+          title:
+            type: mixed
+            value: '{{#1754811331804.chartTitle#}}'
+          x_axis:
+            type: mixed
+            value: '{{#1754811331804.chartXAxis#}}'
+        type: tool
+      height: 54
+      id: '1754813551152'
+      position:
+        x: 1264.7622030215903
+        y: 538.4274082157978
+      positionAbsolute:
+        x: 1264.7622030215903
+        y: 538.4274082157978
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: chart title
+            ja_JP: chart title
+            pt_BR: chart title
+            zh_Hans: 图表的标题
+          label:
+            en_US: title
+            ja_JP: title
+            pt_BR: title
+            zh_Hans: 标题
+          llm_description: chart title
+          max: null
+          min: null
+          name: title
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data for generating chart, each number should be separated by ";"
+            ja_JP: data for generating chart, each number should be separated by ";"
+            pt_BR: data for generating chart, each number should be separated by ";"
+            zh_Hans: 用于生成饼图的数据，每个数字之间用 ";" 分隔
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 数据
+          llm_description: data for generating pie chart, data should be a string
+            contains a list of numbers like "1;2;3;4;5"
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Categories for chart, each category should be separated by ";"
+            ja_JP: Categories for chart, each category should be separated by ";"
+            pt_BR: Categories for chart, each category should be separated by ";"
+            zh_Hans: 饼图的分类，每个分类之间用 ";" 分隔
+          label:
+            en_US: Categories
+            ja_JP: Categories
+            pt_BR: Categories
+            zh_Hans: 分类
+          llm_description: categories for pie chart, categories should be a string
+            contains a list of texts like "a;b;c;1;2" in order to match the data,
+            each category should be split by ";"
+          max: null
+          min: null
+          name: categories
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          categories: ''
+          data: ''
+          title: ''
+        provider_id: langgenius/echarts/echarts
+        provider_name: langgenius/echarts/echarts
+        provider_type: builtin
+        selected: false
+        title: 饼图
+        tool_configurations: {}
+        tool_label: 饼图
+        tool_name: pie_chart
+        tool_node_version: '2'
+        tool_parameters:
+          categories:
+            type: mixed
+            value: '{{#1754811331804.chartXAxis#}}'
+          data:
+            type: mixed
+            value: '{{#1754811331804.chartData#}}'
+          title:
+            type: mixed
+            value: '{{#1754811331804.chartTitle#}}'
+        type: tool
+      height: 54
+      id: '1754814470349'
+      position:
+        x: 1264.7622030215903
+        y: 658.7307055395823
+      positionAbsolute:
+        x: 1264.7622030215903
+        y: 658.7307055395823
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: chart title
+            ja_JP: chart title
+            pt_BR: chart title
+            zh_Hans: 图表的标题
+          label:
+            en_US: title
+            ja_JP: title
+            pt_BR: title
+            zh_Hans: 标题
+          llm_description: chart title
+          max: null
+          min: null
+          name: title
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data for generating chart, each number should be separated by ";"
+            ja_JP: data for generating chart, each number should be separated by ";"
+            pt_BR: data for generating chart, each number should be separated by ";"
+            zh_Hans: 用于生成线性图表的数据，每个数字之间用 ";" 分隔
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 数据
+          llm_description: data for generating linear chart, data should be a string
+            contains a list of numbers like "1;2;3;4;5"
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: X axis for chart, each text should be separated by ";"
+            ja_JP: X axis for chart, each text should be separated by ";"
+            pt_BR: X axis for chart, each text should be separated by ";"
+            zh_Hans: 线性图表的 x 轴，每个文本之间用 ";" 分隔
+          label:
+            en_US: X Axis
+            ja_JP: X Axis
+            pt_BR: X Axis
+            zh_Hans: x 轴
+          llm_description: x axis for linear chart, x axis should be a string contains
+            a list of texts like "a;b;c;1;2" in order to match the data
+          max: null
+          min: null
+          name: x_axis
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          data: ''
+          title: ''
+          x_axis: ''
+        provider_id: langgenius/echarts/echarts
+        provider_name: langgenius/echarts/echarts
+        provider_type: builtin
+        selected: false
+        title: 线性图表
+        tool_configurations: {}
+        tool_label: 线性图表
+        tool_name: line_chart
+        tool_node_version: '2'
+        tool_parameters:
+          data:
+            type: mixed
+            value: '{{#1754811331804.chartData#}}'
+          title:
+            type: mixed
+            value: '{{#1754811331804.chartTitle#}}'
+          x_axis:
+            type: mixed
+            value: '{{#1754811331804.chartXAxis#}}'
+        type: tool
+      height: 54
+      id: '1754814491736'
+      position:
+        x: 1264.7622030215903
+        y: 760.6201511798843
+      positionAbsolute:
+        x: 1264.7622030215903
+        y: 760.6201511798843
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{{ arg1 }}\r\n{{ text }}"
+        title: 饼图模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1754811331804'
+          - results
+          variable: arg1
+        - value_selector:
+          - '1754814470349'
+          - text
+          variable: text
+      height: 54
+      id: '1754814597117'
+      position:
+        x: 1577.1259509228057
+        y: 582.5354571941372
+      positionAbsolute:
+        x: 1577.1259509228057
+        y: 582.5354571941372
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import requests\n\n# Flask应用的基础URL（需要修改）\nbase_url = 'http://192.168.130.253:5002'\
+          \ # 根据自己的ip地址修改\n\n# 定义测试函数\ndef main(arg1: str):\n    # 构造请求的URL和查询参数\n\
+          \    url = f'{base_url}/parse_json'\n    print(\"访问服务器地址：\", url)\n    #\
+          \ 发送GET请求，并包含查询参数\n    response = requests.get(url,params={'json_raw':arg1})\n\
+          \    # 打印响应内容，以便于调试\n    print(\"服务器答复：\",response.json())\n\n    # 检查响应状态码是否为200\n\
+          \    assert response.status_code == 200, f\"Expected status code 200, got\
+          \ {response.status_code}\"\n\n    # 检查响应内容是否为JSON格式\n    assert response.headers['Content-Type']\
+          \ == 'application/json', \"Expected JSON response\"\n\n    # 检查响应内容是否包含数据\n\
+          \    data = response.text\n\n    # result = {i: sublist for i, sublist in\
+          \ enumerate(data)}\n\n    # print(result,type(result))\n\n    return {'result':data}\n\
+          \n    assert isinstance(data, list), \"Expected a list of results\"\n  \
+          \  assert len(data) > 0, \"Expected non-empty list\"\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 测试echart
+        type: code
+        variables:
+        - value_selector:
+          - '1754668216463'
+          - text
+          variable: arg1
+      height: 54
+      id: '17549005261450'
+      position:
+        x: 1326
+        y: 164.57326791481546
+      positionAbsolute:
+        x: 1326
+        y: 164.57326791481546
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '17549005261450'
+          - result
+          variable: results
+        selected: false
+        title: '测试结束 '
+        type: end
+      height: 90
+      id: '1754900789193'
+      position:
+        x: 1630
+        y: 164.57326791481546
+      positionAbsolute:
+        x: 1630
+        y: 164.57326791481546
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{{ arg1 }}\r\n{{ text }}"
+        title: 柱状图模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1754811331804'
+          - results
+          variable: arg1
+        - value_selector:
+          - '1754813551152'
+          - text
+          variable: text
+      height: 54
+      id: '17549168521050'
+      position:
+        x: 1577.1259509228057
+        y: 487.94805618694033
+      positionAbsolute:
+        x: 1577.1259509228057
+        y: 487.94805618694033
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{{ arg1 }}\r\n{{ text }}"
+        title: 线性图模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1754811331804'
+          - results
+          variable: arg1
+        - value_selector:
+          - '1754814491736'
+          - text
+          variable: text
+      height: 54
+      id: '17549168548010'
+      position:
+        x: 1577.1259509228057
+        y: 683.472462230121
+      positionAbsolute:
+        x: 1577.1259509228057
+        y: 683.472462230121
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -781.5506910935555
+      y: -239.87096197819574
+      zoom: 1.0499342378583152
